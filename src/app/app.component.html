@@ -47,7 +47,7 @@
       
 
     </div>
-    <div class="pt-6 grid grid-rows-5">
+    <div class="pt-4 relative right-20 grid grid-rows-5">
 
       <div class="w-fit text-2xl">
         {{userInfo.name}}
@@ -62,7 +62,7 @@
         Twitter: www.twitter.com/{{userInfo.twitter_username}}
       </div>
       <div class="w-fit ">
-        <a >Github Profile: {{userInfo.html_url}}</a>
+        <a href={{userInfo.html_url}}>Github Profile: {{userInfo.html_url}}</a>
         
       </div>
     </div>
@@ -83,9 +83,9 @@
     <p class="text-gray-400 text-sm text-left">
       {{ repo.description }}
     </p>
-    <div class="flex flex-row">
+    <div class="flex flex-row  flex-wrap gap-y-4 gap-x-2">
 
-      <div class="bg-teal-500 border text-white text-lg font-semibold px-4 py-2 justify-center rounded-lg gap-1 flex flex-row " *ngFor = "let langunge of userTopics[repo.name]">
+      <div class="bg-teal-500 border text-white text-md font-semibold px-4 py-2 justify-center rounded-md gap-1 flex flex-row " *ngFor = "let langunge of userTopics[repo.name]">
   
             {{langunge}}
   
