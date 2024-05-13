@@ -65,7 +65,7 @@ export class AppComponent implements OnInit{
     }
 
     generatePageNumbers() : number[]{
-      const totalRepos = this.userInfo ? this.userInfo.public_repos : 0; // Assuming public_repos is a valid property
+      const totalRepos = this.userInfo ? this.userInfo.public_repos : 0; 
 
       const totalPages = Math.ceil(totalRepos /this.perPage)
       let pages= []
