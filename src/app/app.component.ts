@@ -31,12 +31,10 @@ export class AppComponent implements OnInit{
         this.apiService.getUser(this.githubUsername).subscribe(
           (user : any)=>{
             this.userInfo = user;
-            console.log(user)
           }
         );
         this.apiService.getRepo(this.githubUsername, page, this.perPage).subscribe(
           (repos: any)=>{
-            console.log(repos);
             
             this.userRepos =repos;  
          
@@ -44,7 +42,6 @@ export class AppComponent implements OnInit{
             repos.forEach((repo : any) => {
               this.apiService.getTopics(this.githubUsername,repo.name ).subscribe((languages : any)=>{
                this.userTopics[repo.name]= Object.keys(languages);
-               console.log(this.userTopics)
               }
               );
 

@@ -1,11 +1,11 @@
-<div class="grid h-screen text-center p-12">
+<div class="grid h-screen text-center p-4 md:p-12 sm:p-32">
   <div class="grid h-fit">
-    <div class="font-bold text-3xl" >
+    <div class="font-bold text-3xl md:text-4xl lg:text-5xl" >
       Fyle Internship Challenge
       
     </div>
     
-    <div class="font-bold text-5xl mt-6 text-teal-900" >
+    <div class="font-bold text-5xl mt-6 text-teal-900 md:text-5xl lg:text-6xl" >
       Github Finder
       
     </div>
@@ -16,7 +16,7 @@
             <input type="text" placeholder='Type username' class=' min-w-full  bg-transparent text-lg font-semibold outline-none' [(ngModel)]="githubUsername" />
       
          
-            <button (click)="getUserf()" class='  text-lg text-green-900 hover:text-green-700 font-bold w-fit  ' >
+            <button (click)="getUserf()" class='  text-lg text-green-900 hover:text-green-700 font-bold   ' >
               Search
             </button>
         </div>
@@ -26,9 +26,10 @@
   </div>
 
   <div *ngIf="!userInfo" >
-    <h1 class=" w-1/3 leading-normal  mx-auto italic font-semibold text-3xl text-center text-teal-700">"Ready to GitHub-hunt? Type in any handle and let's dive into the code-o-sphere!"</h1>
+    <h1 class=" w-full md:w-1/2 lg:w-1/3 leading-normal  mx-auto italic font-semibold text-2xl md:text-3xl lg:text-4xl px-4 text-center text-teal-700">"Ready to GitHub-hunt? Type in any handle and let's dive into the code-o-sphere!"</h1>
 
   </div>
+  
 
 
   
@@ -40,29 +41,28 @@
     </select>
   </div>
 
-  <div *ngIf="userInfo" class="grid grid-cols-2 mt-8 mb-8  ">
-    <div class="rounded-full w-44 h-44 ml-64 border-2 border-gray-500 bg-transparent">
-        
-        <img src={{userInfo.avatar_url}} class="rounded-full">
-      
+  <div *ngIf="userInfo" class="flex flex-row gap-x-44  flex-wrap mx-auto     mt-8 mb-8  ">
+    
 
+    <div class="w-fit pl-20 flex justify-center  md:justify-end">
+          <img src="{{userInfo.avatar_url}}" class="w-44 h-44 border-2 border-gray-500 rounded-full mx-auto">
     </div>
-    <div class="pt-4 relative right-20 grid grid-rows-5">
+    <div class=" pt-6 text-left   px-4 flex flex-col gap-x-2 sm:mx-auto relative right-20 ">
 
-      <div class="w-fit text-2xl">
+      <div class=" text-2xl md:text-3xl">
         {{userInfo.name}}
       </div>
-      <div class="w-fit ">
-        {{userInfo.bio}}
+      <div class=" ">
+        Bio: {{userInfo.bio}}
       </div>
-      <div class="w-fit ">
-        {{userInfo.location}}
+      <div class=" ">
+        Location: {{userInfo.location}}
       </div>
-      <div class="w-fit ">
-        Twitter: www.twitter.com/{{userInfo.twitter_username}}
+      <div class=" ">
+        Twitter:<a  href="https://www.twitter.com/{{userInfo.twitter_username}}" target="_blank"> www.twitter.com/{{userInfo.twitter_username}}</a>
       </div>
-      <div class="w-fit ">
-        <a href={{userInfo.html_url}}>Github Profile: {{userInfo.html_url}}</a>
+      <div class=" ">
+        Github Profile:  <a href={{userInfo.html_url}} target="_blank">{{userInfo.html_url}}</a>
         
       </div>
     </div>
@@ -70,7 +70,7 @@
 
   
 
-<div  class="grid grid-cols-2 gap-10 mt-8 mx-auto">
+<div  class="grid sm:grid-cols-1  lg:grid-cols-2 gap-4 mt-8 mx-auto">
 
   <div *ngFor="let repo of userRepos"
     class="service-card rounded-lg max-w-md shadow-md border-green-200 border  shadow-teal-200 cursor-pointer snap-start shrink-0 py-8 px-6 bg-white flex flex-col items-start gap-3 transition-all duration-300 group hover:bg-teal-800"
@@ -85,7 +85,7 @@
     </p>
     <div class="flex flex-row  flex-wrap gap-y-4 gap-x-2">
 
-      <div class="bg-teal-500 border text-white text-md font-semibold px-4 py-2 justify-center rounded-md gap-1 flex flex-row " *ngFor = "let langunge of userTopics[repo.name]">
+      <div class="bg-teal-600 border text-white text-md font-semibold px-4 py-2 justify-center rounded-md gap-1 flex flex-row " *ngFor = "let langunge of userTopics[repo.name]">
   
             {{langunge}}
   
